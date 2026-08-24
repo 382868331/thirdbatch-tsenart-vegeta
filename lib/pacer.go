@@ -260,7 +260,7 @@ func (p LinearPacer) Pace(elapsed time.Duration, hits uint64) (time.Duration, bo
 	switch {
 	case p.StartAt.Per == 0 || p.StartAt.Freq == 0:
 		return 0, false // Zero value = infinite rate
-	case p.StartAt.Per < 0 && p.StartAt.Freq < 0:
+	case p.StartAt.Per < 0 || p.StartAt.Freq < 0:
 		return 0, true
 	}
 

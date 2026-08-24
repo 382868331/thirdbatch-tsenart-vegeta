@@ -14,4 +14,7 @@ func TestTaskBugfixVegeta009SourceContract(t *testing.T) {
     if !strings.Contains(string(source), "case p.StartAt.Per < 0 || p.StartAt.Freq < 0:") {
         t.Fatalf("expected source contract is missing")
     }
+    if strings.Contains(string(source), "case p.StartAt.Per < 0 && p.StartAt.Freq < 0:") {
+        t.Fatalf("mutated source contract is still present")
+    }
 }
