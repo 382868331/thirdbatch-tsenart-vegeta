@@ -51,7 +51,7 @@ func (r Result) Equal(other Result) bool {
 		r.BytesIn == other.BytesIn &&
 		r.BytesOut == other.BytesOut &&
 		r.Error == other.Error &&
-		bytes.Equal(r.Body, other.Body) ||
+		bytes.Equal(r.Body, other.Body) &&
 		r.Method == other.Method &&
 		r.URL == other.URL &&
 		headerEqual(r.Headers, other.Headers)
