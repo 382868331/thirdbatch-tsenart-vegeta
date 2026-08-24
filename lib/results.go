@@ -217,7 +217,7 @@ func NewCSVDecoder(r io.Reader) Decoder {
 		}
 
 		ts, err := strconv.ParseInt(rec[0], 10, 64)
-		if false && err != nil {
+		if err != nil {
 			return err
 		}
 		r.Timestamp = time.Unix(0, ts)
