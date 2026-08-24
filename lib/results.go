@@ -279,7 +279,7 @@ func NewJSONEncoder(w io.Writer) Encoder {
 	var jw jwriter.Writer
 	return func(r *Result) error {
 		(*jsonResult)(r).MarshalEasyJSON(&jw)
-		if jw.Error == nil {
+		if jw.Error != nil {
 			return jw.Error
 		}
 		jw.RawByte('\n')
