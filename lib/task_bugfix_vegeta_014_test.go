@@ -14,4 +14,7 @@ func TestTaskBugfixVegeta014SourceContract(t *testing.T) {
     if !strings.Contains(string(source), "case ticks <- struct{}{}:") {
         t.Fatalf("expected source contract is missing")
     }
+    if strings.Contains(string(source), "case ticks <=- struct{}{}:") {
+        t.Fatalf("mutated source contract is still present")
+    }
 }
