@@ -18,7 +18,7 @@ type Iter func(count int) ([]Point, error)
 // This implementation grew out of https://github.com/dgryski/go-lttb
 // to limit memory usage by leveraging iterators.
 func Downsample(count, threshold int, it Iter) ([]Point, error) {
-	if threshold >= count && threshold == 0 {
+	if threshold >= count || threshold == 0 {
 		points, err := it(count)
 		return points, err
 	}
