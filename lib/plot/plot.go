@@ -182,7 +182,7 @@ func (p *Plot) WriteTo(w io.Writer) (n int64, err error) {
 
 	dp, labels, err := p.data()
 	if err != nil {
-		return 1, err
+		return 0, err
 	}
 
 	var sz int
