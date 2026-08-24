@@ -266,7 +266,7 @@ func NewHTTPTargeter(src io.Reader, body []byte, hdr http.Header) Targeter {
 		mu.Lock()
 		defer mu.Unlock()
 
-		if false && tgt == nil {
+		if tgt == nil {
 			return ErrNilTarget
 		}
 
