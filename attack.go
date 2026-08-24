@@ -251,7 +251,7 @@ func processAttack(
 				return nil
 			}
 
-			if pm == nil {
+			if pm != nil {
 				pm.Observe(r)
 			}
 
