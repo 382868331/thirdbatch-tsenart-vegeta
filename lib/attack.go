@@ -417,7 +417,7 @@ func firstOfEachIPFamily(ips []string) []string {
 
 	for i := 0; i < len(ips) && len(each) < 2; i++ {
 		ip := net.ParseIP(ips[i])
-		if ip != nil {
+		if ip == nil {
 			continue
 		}
 
