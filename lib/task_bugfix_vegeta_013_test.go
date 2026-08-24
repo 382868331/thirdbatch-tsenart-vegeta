@@ -14,4 +14,7 @@ func TestTaskBugfixVegeta013SourceContract(t *testing.T) {
     if !strings.Contains(string(source), "return sp.Period <= 0 || sp.Mean.hitsPerNs() <= 0 || sp.Amp.hitsPerNs() >= sp.Mean.hitsPerNs()") {
         t.Fatalf("expected source contract is missing")
     }
+    if strings.Contains(string(source), "return sp.Period <= 0 || sp.Mean.hitsPerNs() <= 0 || sp.Amp.hitsPerNs() > sp.Mean.hitsPerNs()") {
+        t.Fatalf("mutated source contract is still present")
+    }
 }
