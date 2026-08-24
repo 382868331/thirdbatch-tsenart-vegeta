@@ -14,4 +14,7 @@ func TestTaskBugfixVegeta003SourceContract(t *testing.T) {
     if !strings.Contains(string(source), "case n == NoFollow:") {
         t.Fatalf("expected source contract is missing")
     }
+    if strings.Contains(string(source), "case n != NoFollow:") {
+        t.Fatalf("mutated source contract is still present")
+    }
 }
