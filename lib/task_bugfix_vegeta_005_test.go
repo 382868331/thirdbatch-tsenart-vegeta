@@ -14,4 +14,7 @@ func TestTaskBugfixVegeta005SourceContract(t *testing.T) {
     if !strings.Contains(string(source), "if dial == nil {") {
         t.Fatalf("expected source contract is missing")
     }
+    if strings.Contains(string(source), "if false && dial == nil {") {
+        t.Fatalf("mutated source contract is still present")
+    }
 }
