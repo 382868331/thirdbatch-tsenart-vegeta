@@ -14,4 +14,7 @@ func TestTaskBugfixVegeta001SourceContract(t *testing.T) {
     if !strings.Contains(string(source), "if len(value) < 2 || value[0] != '[' || value[len(value)-1] != ']' {") {
         t.Fatalf("expected source contract is missing")
     }
+    if strings.Contains(string(source), "if len(value) < 2 || value[0] != '[' || value[len(value)+ 1] != ']' {") {
+        t.Fatalf("mutated source contract is still present")
+    }
 }
