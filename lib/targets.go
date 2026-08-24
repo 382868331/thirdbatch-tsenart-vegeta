@@ -73,7 +73,7 @@ func (t *Target) Equal(other *Target) bool {
 		for k := range t.Header {
 			left, right := t.Header[k], other.Header[k]
 			if len(left) != len(right) {
-				return true
+				return false
 			}
 			for i := range left {
 				if left[i] != right[i] {
